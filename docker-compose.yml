@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  api:
+    container_name: "todo-backend"
+    build:
+      context:  ./todo-backend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./todo-backend/:/usr/app
+      - /app/node_modules/
+    depends_on:
+      - db
+    
+  db:
+    container_name: db
+    image: mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todo
+    volumes:
+      - ./data:/var/lib/mysql
+
+

@@ -6,37 +6,42 @@ export declare class TodoController {
     constructor(todoService: TodoService);
     create(createTodoDto: CreateTodoDto): Promise<{
         id: string;
-        userId: number;
         title: string;
         completed: boolean;
+        teste: string;
         createdAt: Date;
+        userId: string;
     }>;
     findAll(): Promise<{
         id: string;
-        userId: number;
         title: string;
         completed: boolean;
+        teste: string;
         createdAt: Date;
+        userId: string;
     }[]>;
     findOne(id: string): Promise<{
         id: string;
-        userId: number;
         title: string;
         completed: boolean;
+        teste: string;
         createdAt: Date;
+        userId: string;
     }>;
     update(id: string, updateTodoDto: UpdateTodoDto): Promise<{
         id: string;
-        userId: number;
         title: string;
         completed: boolean;
+        teste: string;
         createdAt: Date;
+        userId: string;
     }>;
     remove(id: string): Promise<{
         id: string;
-        userId: number;
         title: string;
         completed: boolean;
+        teste: string;
         createdAt: Date;
+        userId: string;
     }>;
 }
