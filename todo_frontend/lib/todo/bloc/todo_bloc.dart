@@ -17,5 +17,11 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
         TodoSuccessState(todos: await todoRepository.getTodos()),
       ),
     );
+
+    on<TodoRemoveEvent>((event, emit) async {
+      await todoRepository.removeTodo(event.todo);
+      // emit(TodoInitialState());
+      emit(TodoSuccessState(todos: await todoRepository.getTodos()));
+    });
   }
 }

@@ -16,8 +16,15 @@ class TodoRepositoryImpl extends TodoRepository {
     await Future.delayed(const Duration(seconds: 2));
     return todos;
   }
+
+  @override
+  Future<void> removeTodo(TodoModel todo) async {
+    await todoApi.removeTodo(todo.id);
+  }
 }
 
 abstract class TodoRepository {
   Future<List<TodoModel>> getTodos();
+
+  Future<void> removeTodo(TodoModel todo);
 }

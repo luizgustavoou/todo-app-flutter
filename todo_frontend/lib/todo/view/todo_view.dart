@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_frontend/todo/bloc/todo_bloc.dart';
 import 'package:todo_frontend/todo/bloc/todo_events.dart';
 import 'package:todo_frontend/todo/bloc/todo_state.dart';
-import 'package:todo_frontend/todo/data/model/todo_model.dart';
 
 class TodoPage extends StatefulWidget {
   const TodoPage({super.key});
@@ -18,7 +17,6 @@ class _TodoPageState extends State<TodoPage> {
   @override
   void initState() {
     super.initState();
-    // TODO: implement initState
     context.read<TodoBloc>().add(TodoLoadEvent());
   }
 
@@ -52,7 +50,11 @@ class _TodoPageState extends State<TodoPage> {
                       title: Text(state.todos[index].title),
                       trailing: IconButton(
                         icon: const Icon(Icons.remove),
-                        onPressed: () {},
+                        onPressed: () {
+                          context
+                              .read<TodoBloc>()
+                              .add(TodoRemoveEvent(todo: state.todos[index]));
+                        },
                       ),
                       onTap: () {},
                     );

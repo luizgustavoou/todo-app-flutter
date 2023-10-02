@@ -13,8 +13,14 @@ class TodoApiImpl implements TodoApi {
 
     return json;
   }
+
+  @override
+  Future<void> removeTodo(String id) async {
+    await dio.delete('$url/$id');
+  }
 }
 
 abstract class TodoApi {
   Future<List> getTodos();
+  Future<void> removeTodo(String id);
 }
