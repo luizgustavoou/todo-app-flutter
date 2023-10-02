@@ -52,7 +52,9 @@ class _TodoPageState extends State<TodoPage> {
             },
           )),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed('/todo/add');
+        },
         tooltip: 'Add todo',
         child: const Icon(Icons.add),
       ),

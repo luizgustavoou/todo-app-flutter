@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_frontend/todo/view/todo_add.dart';
 import 'package:todo_frontend/todo/view/todo_view.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,7 +14,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const TodoPage(),
+      routes: {
+        '/': (context) => const TodoPage(),
+        '/todo/add': (context) => const TodoAdd(),
+      },
+      // home: const TodoPage(),
     );
   }
 }
