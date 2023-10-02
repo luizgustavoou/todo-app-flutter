@@ -46,6 +46,10 @@ class _TodoPageState extends State<TodoPage> {
                     return const Divider();
                   },
                 );
+              } else if (state is TodoErrorState) {
+                return Container(
+                  child: Text(state.message),
+                );
               }
 
               return Container();
