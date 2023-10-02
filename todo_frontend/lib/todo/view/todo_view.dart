@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_frontend/todo/bloc/todo_bloc.dart';
 import 'package:todo_frontend/todo/bloc/todo_events.dart';
 import 'package:todo_frontend/todo/bloc/todo_state.dart';
+import 'package:todo_frontend/todo/view/todo_item.dart';
 
 class TodoPage extends StatefulWidget {
   const TodoPage({super.key});
@@ -39,25 +40,7 @@ class _TodoPageState extends State<TodoPage> {
                 return ListView.separated(
                   itemCount: state.todos.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: CircleAvatar(
-                        child: Text(
-                          state.todos[index].title
-                              .substring(0, 1)
-                              .toUpperCase(),
-                        ),
-                      ),
-                      title: Text(state.todos[index].title),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.remove),
-                        onPressed: () {
-                          context
-                              .read<TodoBloc>()
-                              .add(TodoRemoveEvent(todo: state.todos[index]));
-                        },
-                      ),
-                      onTap: () {},
-                    );
+                    return TodoItem(todo: state.todos[index]);
                   },
                   separatorBuilder: (BuildContext context, int index) {
                     return const Divider();
