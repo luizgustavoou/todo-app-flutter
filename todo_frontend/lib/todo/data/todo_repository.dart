@@ -9,9 +9,9 @@ class TodoRepositoryImpl extends TodoRepository {
 
   @override
   Future<List<TodoModel>> getTodos() async {
-    final json = await todoApi.getTodos();
+    final list = await todoApi.getTodos();
 
-    final todos = json.map((e) => TodoModel.fromJson(e)).toList();
+    final todos = list.map((json) => TodoModel.fromMap(json)).toList();
 
     return todos;
   }

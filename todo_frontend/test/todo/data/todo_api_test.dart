@@ -8,5 +8,6 @@ void main() {
     var todos = await todoApi.getTodos();
 
     print(todos);
+    print(todos[0].runtimeType);
   });
 }

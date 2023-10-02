@@ -4,7 +4,7 @@ class TodoModel {
   final String id;
   final String title;
   final bool completed;
-  final String userId;
+  final String? userId;
 
   TodoModel({
     required this.id,
@@ -27,7 +27,7 @@ class TodoModel {
       id: map['id'] as String,
       title: map['title'] as String,
       completed: map['completed'] as bool,
-      userId: map['userId'] as String,
+      userId: map['userId'],
     );
   }
 
