@@ -10,9 +10,9 @@ class TodoInitialState extends TodoState {
   TodoInitialState() : super(todos: []);
 }
 
-class TodoLoadingState extends TodoState {
-  TodoLoadingState() : super(todos: []);
-}
+// class TodoLoadingState extends TodoState {
+//   TodoLoadingState() : super(todos: []);
+// }
 
 class TodoSuccessState extends TodoState {
   TodoSuccessState({required List<TodoModel> todos}) : super(todos: todos);
