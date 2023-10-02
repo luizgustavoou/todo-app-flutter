@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_frontend/todo/bloc/todo_bloc.dart';
+import 'package:todo_frontend/todo/bloc/todo_events.dart';
 
 class TodoAdd extends StatefulWidget {
   const TodoAdd({super.key});
@@ -8,7 +11,14 @@ class TodoAdd extends StatefulWidget {
 }
 
 class _TodoAddState extends State<TodoAdd> {
+  final _titleController = TextEditingController();
   final _keyForm = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _titleController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +34,7 @@ class _TodoAddState extends State<TodoAdd> {
           child: Column(
             children: [
               TextFormField(
+                controller: _titleController,
                 decoration: const InputDecoration(labelText: 'Title'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -38,7 +49,18 @@ class _TodoAddState extends State<TodoAdd> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (_keyForm.currentState!.validate()) {}
+                  if (_keyForm.currentState!.validate()) {
+                    context
+                        .read<TodoBloc>()
+                        .add(TodoAddEvent(title: _titleController.text));
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Todo added successfully'),
+                      ),
+                    );
+
+                  }
                 },
                 child: const Text("Submit"),
               )

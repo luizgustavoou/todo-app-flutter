@@ -4,7 +4,11 @@ abstract class TodoEvent {}
 
 class TodoLoadEvent extends TodoEvent {}
 
-class TodoAddEvent extends TodoEvent {}
+class TodoAddEvent extends TodoEvent {
+  String title;
+
+  TodoAddEvent({required this.title});
+}
 
 class TodoRemoveEvent extends TodoEvent {
   TodoModel todo;

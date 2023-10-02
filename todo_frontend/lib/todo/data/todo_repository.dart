@@ -21,10 +21,19 @@ class TodoRepositoryImpl extends TodoRepository {
   Future<void> removeTodo(TodoModel todo) async {
     await todoApi.removeTodo(todo.id);
   }
+  
+  @override
+  Future<void> addTodo(String title) async{
+      await todoApi.addTodo(title);
+
+  }
 }
 
 abstract class TodoRepository {
   Future<List<TodoModel>> getTodos();
 
   Future<void> removeTodo(TodoModel todo);
+
+  Future<void> addTodo(String title);
+
 }

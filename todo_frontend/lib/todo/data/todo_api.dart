@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:todo_frontend/todo/data/model/todo_model.dart';
 
 class TodoApiImpl implements TodoApi {
   //TODO: Injetar dependencia de dio para testes!
@@ -18,9 +19,18 @@ class TodoApiImpl implements TodoApi {
   Future<void> removeTodo(String id) async {
     await dio.delete('$url/$id');
   }
+
+  @override
+  Future<void> addTodo(String title) async {
+    await dio.post(
+      url,
+      data: {'userId': null, 'title': title, 'completed': false},
+    );
+  }
 }
 
 abstract class TodoApi {
   Future<List> getTodos();
   Future<void> removeTodo(String id);
+  Future<void> addTodo(String title);
 }
