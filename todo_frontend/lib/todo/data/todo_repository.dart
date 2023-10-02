@@ -13,6 +13,7 @@ class TodoRepositoryImpl extends TodoRepository {
 
     final todos = list.map((json) => TodoModel.fromMap(json)).toList();
 
+    await Future.delayed(const Duration(seconds: 2));
     return todos;
   }
 }
