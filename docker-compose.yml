@@ -17,7 +17,7 @@ services:
     container_name: db
     image: mysql
     ports:
-      - 3307:3306
+      - 3306:3306
     environment:
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'password'
@@ -25,5 +25,14 @@ services:
       MYSQL_DATABASE: todo
     volumes:
       - ./data:/var/lib/mysql
+  prisma_preview:
+    build:
+      context: ./todo-backend
+      dockerfile: ../scripts/prisma.dockerfile
+    ports:
+      - "5555:5555"
+    depends_on:
+      - db
+
 
 

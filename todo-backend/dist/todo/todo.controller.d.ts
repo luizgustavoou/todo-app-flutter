@@ -8,7 +8,6 @@ export declare class TodoController {
         id: string;
         title: string;
         completed: boolean;
-        teste: string;
         createdAt: Date;
         userId: string;
     }>;
@@ -16,7 +15,6 @@ export declare class TodoController {
         id: string;
         title: string;
         completed: boolean;
-        teste: string;
         createdAt: Date;
         userId: string;
     }[]>;
@@ -24,7 +22,6 @@ export declare class TodoController {
         id: string;
         title: string;
         completed: boolean;
-        teste: string;
         createdAt: Date;
         userId: string;
     }>;
@@ -32,7 +29,6 @@ export declare class TodoController {
         id: string;
         title: string;
         completed: boolean;
-        teste: string;
         createdAt: Date;
         userId: string;
     }>;
@@ -40,7 +36,6 @@ export declare class TodoController {
         id: string;
         title: string;
         completed: boolean;
-        teste: string;
         createdAt: Date;
         userId: string;
     }>;
