@@ -54,5 +54,5 @@ docker compose up -d
 Finalizado
 
 # Autor
-<p>Luiz Gustavo de Oliveira Umbelino</p>p>
+<p>Luiz Gustavo de Oliveira Umbelino</p>
 
